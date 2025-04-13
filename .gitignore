@@ -1,0 +1,22 @@
+# Ignore Python cache
+__pycache__/
+*.pyc
+
+# Ignore virtual environments
+venv/
+env/
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore PyInstaller output
+dist/
+build/
+*.spec
+
+# Ignore VS Code settings
+.vscode/
+
+# Ignore audio if needed
+web/assets/audio/*.mp3

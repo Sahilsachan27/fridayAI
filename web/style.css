@@ -1,0 +1,286 @@
+/* === Body and Background === */
+body {
+  background-color: #000;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+/* === Glowing Spinning Blobs === */
+.square {
+  position: relative;
+  z-index: 2;
+  width: 360px; /* smaller size */
+  height: 390px;
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px auto 0 auto;  
+}
+
+.square span:nth-child(1) {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+  background-image: radial-gradient(#6b72ff00 50%, #000dff3b 40%);
+  box-shadow: 0 0 50px rgb(25, 0, 255),inset 0 0 50px rgb(25, 0, 255);
+  transition: 0.5s;
+  animation: animate1 6s linear infinite;
+}
+.square span:nth-child(2) {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+  background-image: radial-gradient(#6b72ff00 50%, #000dff3b 40%);
+  box-shadow: 0 0 50px rgb(25, 0, 255),inset 0 0 50px rgb(25, 0, 255);
+  transition: 0.5s;
+  animation: animate2 4s linear infinite;
+}
+.square span:nth-child(3) {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+  background-image: radial-gradient(#6b72ff00 50%, #000dff3b 40%);
+  box-shadow: 0 0 50px rgb(25, 0, 255),inset 0 0 50px rgb(25, 0, 255);
+  transition: 0.5s;
+  animation: animate3 8s linear infinite;
+}
+
+
+
+/* === SVG Frame Animation === */
+.svg-frame {
+  position: relative;
+  width: 455px;
+  height: 455px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: change-view 2s ease-in infinite;
+}
+
+svg {
+  width: 450px;
+  height: 450px;
+  fill: none;
+  transition: 0.5s;
+  filter: drop-shadow(0 0 12px #00aaff);
+  animation: rotate 6s linear infinite alternate;
+}
+
+@keyframes animate1 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes animate2 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes animate3 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+/* === Chatbox === */
+.chat-canvas {
+  background-color: #191919;
+ 
+}
+
+/* === Messages === */
+.sender_message, .receiver_message {
+  padding: 8px 12px;
+  margin: 8px 0;
+  max-width: 75%;
+  word-wrap: break-word;
+  border-radius: 15px;
+  font-size: 14px;
+  color: white;
+}
+
+.sender_message {
+  background-color: #0045ff;
+  border: 1px solid #0045ff;
+  align-self: flex-end;
+  border-radius: 15px 15px 0px 20px;
+}
+
+.receiver_message {
+  background-color: #0dcaf014;
+  border: 2px solid cyan;
+  align-self: flex-start;
+  border-radius: 0px 15px 15px 20px;
+}
+
+.width-size {
+  width: fit-content;
+  max-width: 90%;
+}
+
+/* === Input Area === */
+#textInput {
+  background-color: rgba(24, 24, 24, 0.9);
+  border-color: blue;
+  box-shadow: 0 0 20px rgb(25, 0, 255),
+    inset 0 0 0px rgb(25, 0, 255);
+  border-radius: 10px;
+  color: white;
+  padding: 3px 0px 3px 20px;
+  margin: 0px auto;
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  margin-top: -70px;
+}
+
+.input-field {
+  background-color: transparent;
+  border: none;
+  width: 95%;
+  outline: none;
+  color: white;
+  font-family: cursive;
+}
+
+
+.glow-on-hover {
+  width: 35px;
+  height: 35px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  padding: 0px;
+  margin-left: 10px;
+}
+
+.glow-on-hover:before {
+  content: '';
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+}
+
+.glow-on-hover:active {
+  color: #181818a8
+}
+
+.glow-on-hover:active:after {
+  background: transparent;
+}
+
+.glow-on-hover:hover:before {
+  opacity: 1;
+}
+
+.glow-on-hover:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 400% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+}
+
+
+/* === Glow Variants === */
+.glow-red {
+  color: #ff4b5c;
+  text-shadow:
+    0 0 4px #ff4b5c,
+    0 0 8px #ff1c32,
+    0 0 12px #c30010,
+    0 0 20px #a6000d;
+}
+
+.glow-cyan {
+  color: #00f6ff;
+  text-shadow:
+    0 0 5px #00f6ff,
+    0 0 10px #00f6ff,
+    0 0 20px #00f6ff,
+    0 0 40px #0ff,
+    0 0 80px #0ff;
+}
+
+.glow-purple {
+  color: #c77dff;
+  text-shadow:
+    0 0 5px #c77dff,
+    0 0 10px #b46cff,
+    0 0 15px #a25aff,
+    0 0 20px #913eff;
+}
+
+.glow-green {
+  color: #00ff99;
+  text-shadow:
+    0 0 5px #00ff99,
+    0 0 10px #00cc77,
+    0 0 15px #009966,
+    0 0 25px #00ff99;
+}
+
+.chat-box-lift {
+  margin-top: -80px;  /* adjust this value to lift the chat box */
+}
+
